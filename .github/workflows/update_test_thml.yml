@@ -1,4 +1,4 @@
-name : Update inedex.html with current time
+name: Update index.html with current time
 
 on:
   push:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  burld:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,13 +23,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install pytest
-        if [ -f requirements.txt]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run python script
       run: |
         python update_time.py
 
-    - name: Comiit updated index.html
+    - name: Commit updated index.html
       uses: EndBug/add-and-commit@v7
       with: 
         author_name: chunoo11
